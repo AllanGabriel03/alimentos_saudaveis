@@ -1,0 +1,29 @@
+<div id="div-form">
+    <h2>Lista de frutas</h2>
+
+    <form id="formulario">
+        <label for="descricao">Descrição</label>
+        <input type="text" name="descricao" id="descricao" [(ngModel)]="descricao_produto">
+
+        <label for="valor_unitario">Valor Unitário</label>
+        <input type="number" name="valor_unitario" id="valor_unitario" [(ngModel)]="valor_unitario">
+
+        <div id="div-btns">
+            <button type="button" id="btnAdd" (click)="addItem()"> Adicionar </button>
+            <button type="button" id="btnLimpar" (click)="limparTudo()"> Limpar </button>
+        </div>
+    </form>
+
+    <div id="div-lista">
+
+        @for(elem of listaItens; track elem.idProduto ){
+            <div class="div-item"> 
+                <input type="checkbox"> &nbsp;&nbsp;&nbsp;  {{elem.idProduto}} - {{elem.descricaoProduto}} - R$ {{elem.valorUnitario?.toFixed(2)?.replace('.',',')}}
+            </div>
+            
+        }@empty {
+            <div class="div-item"> NENHUM ITEM ADICIONADO!!! </div>
+        }
+
+    </div>
+</div>
