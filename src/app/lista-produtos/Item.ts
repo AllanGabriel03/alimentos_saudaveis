@@ -1,5 +1,5 @@
 export class Item {
-    idProduto?: number
+    id?: number
     descricaoProduto?: string
     valorUnitario?: number
     statusItem: boolean = false

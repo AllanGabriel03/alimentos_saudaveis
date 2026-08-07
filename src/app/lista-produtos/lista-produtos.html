@@ -16,9 +16,15 @@
 
     <div id="div-lista">
 
-        @for(elem of listaItens; track elem.idProduto ){
+        @for(elem of listaProdutos(); track elem.id ){
             <div class="div-item"> 
-                <input type="checkbox"> &nbsp;&nbsp;&nbsp;  {{elem.idProduto}} - {{elem.descricaoProduto}} - R$ {{elem.valorUnitario?.toFixed(2)?.replace('.',',')}}
+                <span class="item-fruta">
+                    {{elem.id}} - {{elem.descricaoProduto}} - R$ {{elem.valorUnitario?.toFixed(2)?.replace('.',',')}}
+                </span>
+                <span class="btns-lista">
+                    <a class="lnk-editar" (click)="buscarPorId(elem)"> Editar </a>
+                    <a class="lnk-excluir"  (click)="exluir(elem)"> Excluir </a>
+                </span>
             </div>
             
         }@empty {
